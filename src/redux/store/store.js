@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { alumnosSlice } from '../slices/alumnos/alumnosSlice';
 import { dashboardSlice } from '../slices/dashboard/dashboardSlice';
+import { progresoSlice } from '../slices/progreso';
 
 const persistConfig = {
     key: 'auth',
@@ -17,6 +18,7 @@ export const store = configureStore({
         auth: authPersistedReducer,
         alumnos: alumnosSlice.reducer,
         dashboard: dashboardSlice.reducer,
+        progreso: progresoSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

@@ -12,7 +12,6 @@ import { NumberInputWithTitle, TextInputWithTitle } from "../../components/Input
 export const PersonalLicence = ({ setPage }) => {
 
     const [optionValueDiscapacidad, setOptionValueDiscapacidad] = useState({});
-    console.log(optionValueDiscapacidad);
 
     // eslint-disable-next-line no-unused-vars
     const { register, handleSubmit, formState: { errors } } = useForm();

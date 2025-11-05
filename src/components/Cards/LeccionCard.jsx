@@ -1,3 +1,4 @@
+import { estadoLeccion } from "../../helpers/Enums"
 import { ActionButtonLection } from "../Buttons/ActionButton"
 import { SeparatorWithoutText } from "../UI/Separator"
 
@@ -14,8 +15,8 @@ export const LeccionCard = ({ title, difficulty, state, quantity, leccionId }) =
                 <span className="text-center mt-4 text-lg bg-indigo-500 p-2 w-4/6 rounded-md ml-2 "> <span className="bg-orange-400 px-2 py-1 rounded-md mr-2 text-black text-xl font-semibold"> {quantity}</span>  Juegos </span>
             </div>
             <div className="flex justify-between">
-                <h1 className={`${(state === 'Completada') ? 'bg-teal-500 text-center w-full' : 'bg-rose-500 w-4/6 '}  mt-4 text-xl p-2 rounded-md`}> {state} </h1>
-                {(state === 'Pendiente') && <ActionButtonLection idLeccion={leccionId} label={'Resolver'} />}
+                <h1 className={`${(state === estadoLeccion.COMPLETADO) ? 'bg-teal-500 text-center w-full' : 'bg-rose-500 w-4/6 '}  mt-4 text-xl p-2 rounded-md`}> {state} </h1>
+                {(state === estadoLeccion.PENDIENTE) && <ActionButtonLection idLeccion={leccionId} label={'Resolver'} />}
             </div>
 
         </section >

@@ -11,58 +11,11 @@ import papa from '../assets/img/gifs/papa.gif'
 import abueloGif from '../assets/img/gifs/abuelo.gif'
 import abuelaGif from '../assets/img/gifs/abuela.gif'
 
-/* PROGRESOS */
-
-export const progresoAlumno = {
-    id: 1,
-    alumno: 1,
-    secciones: [
-        "",
-    ],
-    lecciones: [
-        "1",
-        "2",
-    ],
-    evaluaciones: [
-        "",
-    ]
-}
-
-export const progresoLeccion = {
-    id: 1,
-    alumno: 1,
-    leccion: 1,
-    progreso: "PENDIENTE",
-    teoria: true,
-    practica: false,
-    attemptDate: "2021-09-01T00:00:00.000Z",
-}
-
-export const progresoEvaluacion = {
-    id: 1,
-    alumno: 1,
-    evaluacion: 1,
-    progreso: "PENDIENTE",
-    completionDate: "2021-09-01T00:00:00.000Z",
-}
-
-export const progresoSeccion = {
-    id: 1,
-    alumno: 1,
-    seccion: 1,
-    progreso: "PENDIENTE",
-    leccionesCompletadas: 2,
-    completionDate: "2021-09-01T00:00:00.000Z",
-}
-
-
 /* CONTENIDO */
-
 export const seccionesData = [
     {
         id: 1,
         nombre: 'CLIMA',
-        //area: areasSecciones.CNATURALES,
         cantidadLecciones: 12,
         estado: "ACTIVO",
     },
@@ -70,27 +23,21 @@ export const seccionesData = [
 
 export const leccionesData = [
     {
-        id: 3,
-        seccionId: 1,
+        id: '6907e51d2908af1a4a35f950',
+        seccionId: '6908b79986774e0849179da3',
         nombre: 'Tipos de climas',
-        //dificultad: dificultad.BAJA,
         estado: "ACTIVO",
-        cantidadRecursos: 5,
-        contenidoLeccion: {
-            teoria: [
-                "1",
-                "2",
-            ],
-            practica: [
-                1,
-                2,
-                3,
-                4,
-                5,
-            ]
-        }
+    },
+
+    {
+        id: '6908aa2b608b9e84725403ee',
+        seccionId: '6908b79986774e0849179da3',
+        nombre: 'Tipos de climas',
+        estado: "ACTIVO",
     },
 ]
+
+
 
 export const evaluacionesData = [
     {
@@ -98,7 +45,6 @@ export const evaluacionesData = [
         leccion: 1,
         nombreEvaluacion: 'Tipos de Clima',
         nombreSeccion: 'CLIMA',
-        //area: areasSecciones.CNATURALES,
         contenidoEvaluacion: [
             "1",
         ]
@@ -126,114 +72,6 @@ export const contenidoTeorico = [
             `<p class="text-gray-900">Hola La <span class="text-violet-500"> Lluvia </span>. </p>`,
             `<p class="text-gray-900"> La <span class="text-violet-500  mt-2"> Lluvia </span> sale todos los días.</p>`
         ]
-    },
-]
-
-export const contenidoPractico = [
-    {
-        //Ahorcadito
-        id: 1,
-        idJuego: 1,
-        palabras: [
-            'HERMANO'
-        ],
-        imagenes: [],
-        gifs: [
-            hermanoGif
-        ]
-    },
-    {
-        //Juego De La Memoria
-        id: 2,
-        idJuego: 2,
-        palabras: [],
-        gifs: [
-            abueloGif, 
-            abuelaGif, 
-            mama, 
-            papa
-        ],
-        imagenes: [
-            abuelo,
-            abuela,
-            mamaImg,
-            papaImg
-        ]
-    },
-    {
-        //Ruleta
-        id: 3,
-        idJuego: 3,
-        palabras: [
-            'Abuelo', 
-            'Abuela', 
-            'Mama', 
-            'Papa',
-            'Hermanos',
-        ],
-        imagenes: [
-            abuelo,
-            abuela,
-            mamaImg,
-            papaImg,
-            hermanos
-        ],
-        gifs: [
-            abueloGif, 
-            abuelaGif, 
-            mama, 
-            papa,
-            hermanoGif, 
-        ]
-    },
-    {
-        //Unir Correspondientes
-        id: 4,
-        idJuego: 4,
-        palabras: [
-            'Abuelo', 
-            'Abuela', 
-            'Mama', 
-            'Papa',
-        ],
-        imagenes: [
-            abuelo,
-            abuela,
-            mamaImg,
-            papaImg,
-        ],
-        gifs: [
-            abueloGif, 
-            abuelaGif, 
-            mama, 
-            papa,
-        ]
-    },
-    {
-        //Buscar Coincidencias
-        id: 5,
-        idJuego: 5,
-        palabras: [
-            'Abuelo', 
-            'Abuela', 
-            'Mama', 
-            'Papa',
-            'Hermanos',
-        ],
-        imagenes: [
-            abuelo,
-            abuela,
-            mamaImg,
-            papaImg,
-            hermanos
-        ],
-        gifs: [
-            abueloGif, 
-            abuelaGif, 
-            mama, 
-            papa,
-            hermanoGif, 
-        ],
     },
 ]
 

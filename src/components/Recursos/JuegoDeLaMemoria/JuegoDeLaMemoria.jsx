@@ -45,7 +45,6 @@ export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
     }
 
     const handleClick = (tarjeta) => {
-        console.log(tarjetas);
         if (!tarjeta.flipped && !flipping) {
             const paridad = tarjetas.filter(t => t.flipped).length % 2;
             if (paridad == 0) {
@@ -56,8 +55,6 @@ export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
                 const notMatched = tarjetas.filter(t => t.flipped && !t.matched)[0];
                 tarjeta.flipped = true;
                 if (notMatched.id == tarjeta.id) {
-                    console.log(tarjeta);
-                    console.log(notMatched)
                     notMatched.matched = true;
                     tarjeta.matched = true;
                 } else {

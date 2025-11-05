@@ -1,23 +1,15 @@
 import { useEffect, useState } from "react"
 import { SideBar } from "./SideBar"
 import { recursos } from "../../../data/recursos"
-import { leccionesData, contenidoPractico } from "../../../data/data"
+import { TemasEjemplosData } from '../../../data/TemasEjemplos'
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
 import { SwalForResources } from "../../../utils/ToastSweetAlert"
-//import { TemasEjemplosData } from "../../../data/TemasEjemplos"
-// import { ActionButton } from "../../../components/Buttons/ActionButton"
-// import { ContentFrame } from "./ContentFrame"
-// import { SignalFrame } from "./SignalFrame"
-// import Sun from '../../../assets/Icons/sun.png'
-// import { getThemeById, getContentByLeccionId } from "../../../helpers/getterOptionsForData"
 
-export const PracticalContent = ({ lectionId }) => {
+export const PracticalContent = ({ lectionId, onCompletePractice }) => {
 
     const navigate = useNavigate();
 
-    const [leccionData, setLeccionData] = useState();
-    //const [content, setContent] = useState();
     const [sidebarData, setSidebarData] = useState([]);
     const [contentData, setContentData] = useState([]);
     const [themeNumber, setThemeNumber] = useState(0);
@@ -28,28 +20,24 @@ export const PracticalContent = ({ lectionId }) => {
     const [finishState, setFinishState] = useState(false);
 
     useEffect(() => {
-        setLeccionData(leccionesData.filter(l => l.id == lectionId)[0])
-        //setContent(TemasEjemplosData.filter(t => t.idLeccion == lectionId)[0]);
         //si vamos a guardar el progreso del alumno basta con setear este numero al ultimo ejercicio completado :)
         setThemeNumber(0);
     }, [lectionId])
 
     useEffect(() => {
-        if (leccionData) {
-            let contenidoPracticoActual = leccionData.contenidoLeccion.practica.map(r => contenidoPractico.filter(c => c.id == r)[0]);
-            setContentData(contenidoPracticoActual);
-            setSidebarData(contenidoPracticoActual.map((c, index) => {
-                let r = recursos.filter(recurso => recurso.id == c.idJuego)[0]
-                return {
-                    tema: r.title,
-                    completado: themeNumber > index,
-                    enCurso: index == themeNumber,
-                }
-            }))
-            setGifs(contenidoPracticoActual[themeNumber]?.gifs);
-        }
+        let contenidoPracticoActual = TemasEjemplosData.filter(t => t.idLeccion == lectionId)[0].contenidoPractico;
+        setContentData(contenidoPracticoActual);
+        setSidebarData(contenidoPracticoActual.map((c, index) => {
+            let r = recursos.filter(recurso => recurso.id == c.idJuego)[0]
+            return {
+                tema: r.title,
+                completado: themeNumber > index,
+                enCurso: index == themeNumber,
+            }
+        }))
+        setGifs(contenidoPracticoActual[themeNumber]?.gifs);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [themeNumber, leccionData])
+    }, [themeNumber])
 
 
     const nextTopic = () => {
@@ -61,12 +49,14 @@ export const PracticalContent = ({ lectionId }) => {
                 text: 'Completaste el contenido practico de esta leccion. Bien hecho!',
                 icon: 'success'
             });
-
             setFinishState(true);
         }
     }
 
     const finishLesson = () => {
+        if(onCompletePractice) {
+            onCompletePractice();
+        }
         let timerInterval;
         Swal.fire({
             title: "GENIAL!",
@@ -96,14 +86,13 @@ export const PracticalContent = ({ lectionId }) => {
                 background: '#1f2937',
                 color: '#fff',
             
-                // text: 'Progreso guardado de la leccion actual. Bien hecho.',
+                text: 'Progreso guardado de la leccion actual. Bien hecho.',
                 // text: 'PROGRESO DE LA LECCION ACTUAL ALMACENADO CORRECTAMENTE. BIEN HECHO.',
                 icon: 'success',
                 customClass: {
                     title: 'text-4xl text-orange-500',
                 },
             }).then(() => {
-
                 navigate('/app/dashboard', { replace: true });
             });
 

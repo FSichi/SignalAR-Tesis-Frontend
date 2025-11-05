@@ -6,6 +6,7 @@ import { filterSectionsByArea, getSeccionesByName } from "../../helpers/getterOp
 import { useFilterHook } from "../../hooks/useFilter";
 import { TableListSecciones } from "./TableListSecciones";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 
 export const ListadoSecciones = () => {
@@ -16,7 +17,6 @@ export const ListadoSecciones = () => {
     });
     
     const [sectionFilterlist, setSectionFilterlist] = useState([]);
-    //console.log(optionValueArea);
 
     useEffect(() => {
         setSectionFilterlist(filterSectionsByArea(optionValueArea.label, seccionesData))

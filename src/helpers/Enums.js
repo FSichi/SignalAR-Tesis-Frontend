@@ -39,8 +39,8 @@ export const dificultad = {
 }
 
 export const estadoLeccion = {
-    PENDIENTE: 'Pendiente',
-    COMPLETADA: 'Completada',
+    PENDIENTE: 'PENDIENTE',
+    COMPLETADO: 'COMPLETADO',
 }
 
 export const estadoEvaluacion = {

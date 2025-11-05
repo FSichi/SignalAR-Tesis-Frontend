@@ -62,9 +62,6 @@ export const getSeccionesByName = (name, secciones) => {
 }
 
 export const getSeccionByID = (id, secciones) => {
-
-    // console.log('SECCION: ', secciones.find(seccion => seccion.id == id).nombre);
-
     return secciones.find(seccion => seccion.id == id);
 }
 

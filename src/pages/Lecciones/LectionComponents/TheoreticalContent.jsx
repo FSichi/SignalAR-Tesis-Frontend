@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import { changeSidebarData, getThemeById, getContentByLeccionId, getTopicLength } from "../../../helpers/getterOptionsForData"
 import { Toast } from "../../../utils/ToastSweetAlert"
 
-export const TheoreticalContent = ({ lectionId, setTheoryState }) => {
+export const TheoreticalContent = ({ lectionId, onCompleteTheory }) => {
 
     const [theoricalContent, setTheoricalContent] = useState([]);
     const [sidebarData, setSidebarData] = useState([]);
@@ -44,7 +44,7 @@ export const TheoreticalContent = ({ lectionId, setTheoryState }) => {
 
     const activarPractica = () => {
         
-        setTheoryState(true)
+        onCompleteTheory();
 
         Toast.fire({
             icon: 'success',

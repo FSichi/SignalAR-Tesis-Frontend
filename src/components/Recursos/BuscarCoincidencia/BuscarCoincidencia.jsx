@@ -137,8 +137,6 @@ export const BuscarCoincidencia = ({ data, onComplete, showGif }) => {
         setEvitarJuego(true);
     }
 
-    useEffect(() => console.log(cartasSeleccionadas), [cartasSeleccionadas]);
-
     return (
         <div style={{ color: 'black' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>

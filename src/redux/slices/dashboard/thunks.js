@@ -4,6 +4,7 @@ import { AppAPI } from "../../api/AppAPI";
 // import { renewToken } from "../auth/thunks";
 import { startLoadingDashboardProcess, setDashboardData } from "./dashboardSlice";
 import { setAlumnoSelectedData } from "../alumnos/alumnosSlice";
+import { fetchOrCreateProgresoAlumno, getProgresoEvaluacionesByAlumno, getProgresoLeccionesByAlumno, getProgresoSeccionesByAlumno } from "../progreso";
 
 export const getDashboardInfo = (token, nav) => {
     return async (dispatch) => {
@@ -13,7 +14,6 @@ export const getDashboardInfo = (token, nav) => {
         try {
 
             const { data: responseData } = await AppAPI(token).get(`/users/dashboard/info`);
-
             if (responseData.status === ResponseStatus.OK) {
 
                 dispatch(setDashboardData({
@@ -24,7 +24,11 @@ export const getDashboardInfo = (token, nav) => {
                     dispatch(setAlumnoSelectedData({
                         alumnoSelected: responseData.data.alumnoActivo
                     }));
-                }
+                    dispatch(fetchOrCreateProgresoAlumno(responseData.data.alumnoActivo._id));
+                    dispatch(getProgresoEvaluacionesByAlumno(responseData.data.alumnoActivo._id));
+                    dispatch(getProgresoLeccionesByAlumno(responseData.data.alumnoActivo._id));
+                    dispatch(getProgresoSeccionesByAlumno(responseData.data.alumnoActivo._id))
+                };
 
                 // dispatch(renewToken());
             }

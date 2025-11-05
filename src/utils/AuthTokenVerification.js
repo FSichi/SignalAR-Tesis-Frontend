@@ -6,6 +6,6 @@ export const AuthTokenVerification = (error, nav, dispatch) => {
         ToastToken.fire({ icon: 'warning', title: 'La sesion Expiro. Por favor inicie sesion nuevamente'});
         localStorage.removeItem('persist:auth');
         dispatch(removeAuthentication());
-        nav('/');
+        if(nav) nav('/');
     }
 }

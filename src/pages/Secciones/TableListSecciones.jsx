@@ -4,12 +4,15 @@ import { TableHeaderComponent } from '../../components/Table/TableHeaderComponen
 import { useTablePaginationHook } from '../../hooks/useTablePagination';
 import { colorDiscapacidad, areasSecciones } from '../../helpers/Enums';
 import { TableRowPagination } from '../../components/Table/TableRowComponents';
+import { useSelector } from 'react-redux';
 
 const headerTableSeccionesData = ['NOMBRE', 'AREA', 'CANTIDAD LECCIONES', 'PROGRESO', 'ACCIONES'];
 
 export const TableListSecciones = ({ seccionesList }) => {
 
     const { page, handleChangePage, rowsPerPage, handleChangeRowsPerPage } = useTablePaginationHook(6);
+    
+    const { progresoSecciones } = useSelector(state => state.progreso);
 
     return (
         <TableContainer className='rounded-xl' style={{ maxWidth: 2000 }}>
@@ -23,9 +26,12 @@ export const TableListSecciones = ({ seccionesList }) => {
 
                 <TableBody className='bg-gray-700'>
 
-                    {seccionesList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, i) => (
-                        <TableRowSecciones seccion={row} key={i} />
-                    ))}
+                    {seccionesList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, i) => {
+                        const progreso = progresoSecciones.filter(p => p.seccion == row.id)[0];
+                        return progresoSecciones.length > 0 && (
+                            <TableRowSecciones seccion={row} progreso={progreso} key={i} />
+                        )
+                    })}
 
                     <TableRowPagination
                         count={seccionesList.length} page={page} rowsPerPage={rowsPerPage}
@@ -40,7 +46,7 @@ export const TableListSecciones = ({ seccionesList }) => {
     )
 }
 
-export const TableRowSecciones = ({ seccion }) => {
+export const TableRowSecciones = ({ seccion, progreso }) => {
     return (
         <TableRow key={seccion.id}>
 
@@ -58,7 +64,7 @@ export const TableRowSecciones = ({ seccion }) => {
 
             <TableCellComponent data={seccion.cantidadLecciones} classNameCustom={'text-gray-100 text-xl'} centerTextCell />
 
-            <TableCellComponent data={seccion.progreso} classNameCustom={'text-gray-100 text-xl'} centerTextCell />
+            <TableCellComponent data={`${((progreso.leccionesCompletadas/seccion.cantidadLecciones)*100).toFixed(1)}%`} classNameCustom={'text-gray-100 text-xl'} centerTextCell />
 
             <TableCellActionComponent
                 title={'Visualizar'} color={'indigo-500'} linkAction={`../lecciones/visualizar/${seccion.id}`}

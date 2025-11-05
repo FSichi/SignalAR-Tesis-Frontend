@@ -2,8 +2,6 @@
 import DOMPurify from 'dompurify';
 
 export const ContentFrame = ({ data }) => {
-    console.log(data);
-
     const createMarkup = (html) => {
         return { __html: DOMPurify.sanitize(html) };
     };
