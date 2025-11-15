@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Swal from 'sweetalert2';
 import { SwalForResources } from '../../../utils/ToastSweetAlert';
 
-export const Ahorcadito = ({ data, onComplete, showGif }) => {
+export const Ahorcadito = ({ data, onComplete, showGif, onError, evaluacion }) => {
 
     const [fallos, setFallos] = useState(0);
     const [letrasAdividadas, setLetrasAdivinadas] = useState([]);
@@ -91,6 +91,8 @@ export const Ahorcadito = ({ data, onComplete, showGif }) => {
                             <Button variant='contained' onClick={() => {
                                 setFallos(0);
                                 setLetrasAdivinadas([]);
+                                if(onError)
+                                    onError();
                             }}>
                                 Reintentar!
                             </Button>

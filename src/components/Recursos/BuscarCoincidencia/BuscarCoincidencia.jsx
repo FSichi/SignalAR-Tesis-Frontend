@@ -5,10 +5,9 @@ import { useEffect } from "react";
 import { useInterval } from "../../../hooks/useInverval";
 import ArrowUpward from '@mui/icons-material/ArrowUpward';
 import { inPlaceShuffle } from "../inPlaceShuffle";
-import Swal from "sweetalert2";
 import { SwalForResources } from "../../../utils/ToastSweetAlert";
 
-export const BuscarCoincidencia = ({ data, onComplete, showGif }) => {
+export const BuscarCoincidencia = ({ data, onComplete, showGif, onError, evaluacion }) => {
     //const juegoTerminado = cartaSeleccionada != ''
 
     const [cartasSeleccionadas, setCartasSeleccionadas] = useState([]);
@@ -116,6 +115,8 @@ export const BuscarCoincidencia = ({ data, onComplete, showGif }) => {
             icon: 'error'
         });
         setPerdido(true);
+        if(onError)
+            onError();
     }
 
     function hardReset() {

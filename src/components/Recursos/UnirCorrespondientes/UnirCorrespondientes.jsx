@@ -7,7 +7,7 @@ import { useMemo } from "react"
 import { inPlaceShuffle } from "../inPlaceShuffle"
 import Swal from "sweetalert2"
 
-export const UnirCorrespondientes = ({ data, onComplete, showGif }) => {
+export const UnirCorrespondientes = ({ data, onComplete, showGif, onError, evaluacion }) => {
     const [matchedIndex, setMatchedIndex] = useState([]);
     const [lastError, setLastError] = useState(-1);
 
@@ -22,6 +22,8 @@ export const UnirCorrespondientes = ({ data, onComplete, showGif }) => {
             }
             else {
                 setLastError(overId);
+                if(onError)
+                    onError();
             }
         }
     }

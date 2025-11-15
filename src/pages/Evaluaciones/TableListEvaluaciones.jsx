@@ -2,9 +2,10 @@ import { Table, TableBody, TableContainer, TableRow } from '@mui/material';
 import { TableCellActionComponent, TableCellBackgroundComponent, TableCellComponent } from '../../components/Table/TableCellComponents';
 import { TableHeaderComponent } from '../../components/Table/TableHeaderComponent';
 import { TableRowPagination } from '../../components/Table/TableRowComponents';
-
+import { seccionesData } from '../../data/secciones';
 import { useTablePaginationHook } from "../../hooks/useTablePagination";
-import { getAreaBackground, getEstadoEvaluacionBackground } from '../../helpers/getterOptionsForData';
+import { getAreaBackground, getEstadoEvaluacionBackground, getSeccionByID } from '../../helpers/getterOptionsForData';
+import { useSelector } from 'react-redux';
 
 
 const headerTableEvaluacionesData = ['LECCION A EVALUAR', 'SECCION', 'AREA', 'ESTADO', 'ACCIONES'];
@@ -15,7 +16,6 @@ const evaluacionesTableStyles = {
 };
 
 export const TableListEvaluaciones = ({ evaluacionesList }) => {
-
     const { page, handleChangePage, rowsPerPage, handleChangeRowsPerPage } = useTablePaginationHook(5);
 
     return (
@@ -45,6 +45,10 @@ export const TableListEvaluaciones = ({ evaluacionesList }) => {
 }
 
 export const TableRowEvaluaciones = ({ evaluacion }) => {
+    const { progresoEvaluaciones } = useSelector(state => state.progreso)
+    const progresoEvaluacion = progresoEvaluaciones.filter(p => p.evaluacion === evaluacion.id)[0];
+    const seccion = getSeccionByID(evaluacion.seccion, seccionesData);
+
     return (
         <TableRow key={evaluacion.id}>
 
@@ -54,20 +58,20 @@ export const TableRowEvaluaciones = ({ evaluacion }) => {
             />
 
             <TableCellBackgroundComponent
-                data={evaluacion.seccion} customWidth={290}
+                data={seccion.nombre} customWidth={290}
                 customBackgroundStyles={'rgb(96 165 250)'}
             />
 
             <TableCellBackgroundComponent
-                data={evaluacion.area}
+                data={seccion.area}
                 customWidth={135}
-                customBackgroundStyles={getAreaBackground(evaluacion.area)}
+                customBackgroundStyles={getAreaBackground(seccion.area)}
             />
 
             <TableCellBackgroundComponent
-                data={evaluacion.estado}
+                data={progresoEvaluacion?.progreso ?? 'PENDIENTE'}
                 customWidth={135}
-                customBackgroundStyles={getEstadoEvaluacionBackground(evaluacion.estado)}
+                customBackgroundStyles={getEstadoEvaluacionBackground(progresoEvaluacion?.progreso ?? 'PENDIENTE')}
             />
 
             <TableCellActionComponent

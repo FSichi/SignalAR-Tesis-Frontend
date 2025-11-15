@@ -380,3 +380,31 @@ export const updateProgresoSeccion = (data) => {
   };
 };
 
+// 🟦 Full update of a ProgresoEvaluacion
+export const updateProgresoEvaluacion = (data) => {
+  return async (dispatch, getState) => {
+    const { sessionData } = getState().auth;
+    const token = sessionData.token;
+    const { progresoEvaluaciones } = getState().progreso;
+
+    try {
+      const { data: response } = await AppAPI(token).put(`/progreso/evaluacion`, data);
+      if (response.status === ResponseStatus.OK) {
+
+        // 🔄 Update progresoAlumno in Redux if needed
+        const updatedEvaluaciones = progresoEvaluaciones.map((e) =>
+          e._id === data._id ? response.data : l
+        );
+
+        dispatch(
+          setProgresoEvaluaciones(
+            updatedEvaluaciones
+          )
+        );
+      }
+    } catch (err) {
+      AuthTokenVerification(err, dispatch);
+    }
+  };
+};
+

@@ -7,7 +7,9 @@ import { useItemGetterHook } from '../../hooks/useItemGetter';
 import { getAlumnoByID } from '../../helpers/getterOptionsForData';
 import { LoadingSpinnerWhite } from '../../components/LoadingSpinner/LoadingSpinner';
 import { ErrorCardWithAction } from '../../components/Cards/ErrorCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAlumnosList } from '../../redux/slices/alumnos/thunks';
+import { useEffect } from 'react';
 
 // const tabViewAlumnoOptions = ['RESUMEN', 'DATOS DEL ALUMNO', 'HISTORIAL ACADEMICO', 'REGISTRO DE ACTIVIDAD'];
 const tabViewAlumnoOptions = ['RESUMEN', 'DATOS DEL ALUMNO', 'HISTORIAL ACADEMICO'];
@@ -16,6 +18,14 @@ export const VisualizarAlumno = () => {
 
     const { idAlumno } = useParams();
     const { alumnosList } = useSelector(state => state.alumnos);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!alumnosList || alumnosList.length < 1) {
+            dispatch(getAlumnosList())
+        }
+    }, [alumnosList])
 
     const { item: alumno, isLoading, error } = useItemGetterHook(idAlumno, getAlumnoByID, alumnosList);
 
@@ -32,7 +42,7 @@ export const VisualizarAlumno = () => {
 
     return (
         <>
-            {
+            {alumnosList &&
                 <Tabs defaultValue={0}>
 
                     <TabsListComponent dataTabOptions={tabViewAlumnoOptions} tabType={'h'} />

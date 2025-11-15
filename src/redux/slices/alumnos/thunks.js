@@ -95,3 +95,26 @@ export const agregarAlumno = (alumnoData, { sucessCallBack }) => {
         }
     }
 }
+
+export const updateAlumno = (alumnoData, { sucessCallBack }) => {
+    return async (dispatch, getState) => {
+
+        const { sessionData } = getState().auth
+        const token = sessionData.token;
+
+        try {
+
+            const { data: responseData } = await AppAPI(token).put(`/alumnos`, alumnoData);
+
+            if (responseData.status === ResponseStatus.OK) {
+                ToastNotification.fire({ icon: 'success', title: 'Alumno editado con Exito' });
+                dispatch(getAlumnosList())
+                sucessCallBack();
+            }
+
+        } catch (error) {
+            AuthTokenVerification(error, dispatch);
+            ToastNotification.fire({ icon: 'error', title: error });
+        }
+    }
+}

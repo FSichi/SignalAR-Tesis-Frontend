@@ -47,7 +47,7 @@ export const SelectLicence = ({ licenceType, changeLicenceSelected, changeRegist
 
                 <div className="mt-5">
                     <LoginLinks title={'Ya tienes una Licencia? Inicia Sesion'} url={'/auth/login'} idType={0} />
-                    <LoginLinks title={'Necesitas Ayuda?'} url={'/auth/help-page'} clssName={'mt-5'} idType={0} />
+                    {/* <LoginLinks title={'Necesitas Ayuda?'} url={'/auth/help-page'} clssName={'mt-5'} idType={0} /> */}
                 </div>
 
             </div>

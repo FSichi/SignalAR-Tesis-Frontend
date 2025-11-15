@@ -17,22 +17,38 @@ export const TextInputWithoutTitle = ({ registerForm, inputName, inputType, keyP
 
 export const TextInputWithTitle = ({
     registerForm, inputName, inputTitle, inputType, keyPressEvent, placeholder,
-    customInputClassName, customContainerClassName
+    customInputClassName, customContainerClassName, inputSelectOptions
 }) => {
     return (
         <div className={`w-full text-center ${customContainerClassName}`}>
             <p className="mt-7 text-xl">{inputTitle}</p>
-            <input
-                type={inputType}
-                placeholder={placeholder}
-                name={inputName}
-                onKeyPress={keyPressEvent}
-                className={`text-lg px-3 py-2 rounded-lg w-full text-black text-center
-                bg-white border-2 border-gray-300 placeholder-gray-500 shadow-md
-                focus:border-orange-600  
-                focus:outline-none mt-2 ${customInputClassName}`}
-                {...registerForm}
-            />
+            { inputType==='select'?
+                <select 
+                    name={inputName}
+                    className={`text-lg px-3 py-2 rounded-lg w-full text-black text-center
+                    bg-white border-2 border-gray-300 placeholder-gray-500 shadow-md
+                    focus:border-orange-600  
+                    focus:outline-none mt-2 ${customInputClassName}`}
+                    {...registerForm}>
+                    {inputSelectOptions.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.label}
+                        </option>
+                    ))}
+                </select>
+                :
+                <input
+                    type={inputType}
+                    placeholder={placeholder}
+                    name={inputName}
+                    onKeyPress={keyPressEvent}
+                    className={`text-lg px-3 py-2 rounded-lg w-full text-black text-center
+                    bg-white border-2 border-gray-300 placeholder-gray-500 shadow-md
+                    focus:border-orange-600  
+                    focus:outline-none mt-2 ${customInputClassName}`}
+                    {...registerForm}
+                />
+            }
         </div>
     )
 }

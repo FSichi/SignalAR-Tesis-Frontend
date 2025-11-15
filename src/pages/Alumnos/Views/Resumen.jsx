@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { DataInfoCard } from "../../../components/Cards/DataInfoCard"
 import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+import { useDispatch } from "react-redux";
 
 export const Resumen = ({ alumno }) => {
     return (
@@ -11,7 +13,7 @@ export const Resumen = ({ alumno }) => {
 }
 
 const SeccionIzquieda = ({ alumno }) => {
-    return (
+    return alumno?(
         <div className="bg-gray-800 text-gray-100 rounded-2xl p-4 mt-3 w-1/3">
             <img
                 className="w-72 rounded-full mb-10 mx-auto bg-orange-400 p-1 mt-4"
@@ -23,11 +25,11 @@ const SeccionIzquieda = ({ alumno }) => {
                 <DataInfoCard title={'Ultima Seleccion'} data={'28/05/2023'} colorData={'text-green-400'} textSize={'text-xl'} />
             </div>
         </div>
-    )
+    ):(<></>);
 }
 
 const SeccionDerecha = ({ alumno }) => {
-    return (
+    return alumno?(
         <div className="bg-gray-800 text-gray-100 rounded-2xl p-4 mt-3 w-2/3 ml-5">
 
             <h1 className="text-3xl mb-3 text-center">Padre / Tutor</h1>
@@ -61,7 +63,7 @@ const SeccionDerecha = ({ alumno }) => {
             </div>
 
         </div>
-    )
+    ):(<></>)
 }
 
 const SectionCardInfo = ({ title, state, colorState }) => {

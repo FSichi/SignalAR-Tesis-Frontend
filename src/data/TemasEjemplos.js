@@ -1019,6 +1019,8 @@ export const TemasEjemplosData = [
             },
         ]
     },
+
+    
     
     //------------------------------------------LECCION MEDIOS DE COMUNICACION------------------------------------------------
     {
@@ -1271,3 +1273,112 @@ export const TemasEjemplosData = [
     },
 ]
 
+export const EvaluacionesEjemplosData = [
+    //------------------EVALUACION CLIMA--------------------------------------
+    {
+        id: 1,
+        idEvaluacion: '6918bdc84bf63101fe03c58e',
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
+]

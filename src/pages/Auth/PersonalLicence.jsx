@@ -26,7 +26,7 @@ export const PersonalLicence = ({ setPage }) => {
             <BackButtonLogin icon={<HiReply />} actionMethod={() => { setPage(0) }} />
 
             <TitleForForms
-                title={'Cuenta'} titleEmphasis={'Particular'} colorTitle={'text-green-400'}
+                title={'Cuenta'} titleEmphasis={'Personal'} colorTitle={'text-green-400'}
                 subTitle={'Datos para la confeccion de la Licencia'}
             />
 

@@ -124,8 +124,6 @@ const NavbarContentProfesional = () => {
                 )}
             </Popover>
 
-            <a href='http://127.0.0.1:5501/index.html' target='_blank' rel='noreferrer' className='text-lg font-medium text-gray-100 hover:text-indigo-400 mt-1'>Detector</a>
-
         </Popover.Group>
     )
 }

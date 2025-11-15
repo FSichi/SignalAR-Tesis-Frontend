@@ -9,13 +9,15 @@ import dorso from './dorso.png';
 import { inPlaceShuffle } from '../inPlaceShuffle';
 import { SwalForResources } from '../../../utils/ToastSweetAlert';
 
-export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
+export const JuegoDeLaMemoria = ({ data, onComplete, showGif, onError, evaluacion }) => {
 
     const [tarjetas, setTarjetas] = useState([]);
     const [flipping, setFlipping] = useState(false);
     const cardWidth = 200;
+    const [fallos, setFallos] = useState(0);
+    const maxFallos = 5;
 
-    useEffect(() => {
+    const reset = () => {
         const newTarjetas = [];
         data.imagenes.forEach((imagen, index) => {
             newTarjetas.push({
@@ -33,6 +35,11 @@ export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
         })
         inPlaceShuffle(newTarjetas);
         setTarjetas(newTarjetas);
+        setFallos(0);
+    }
+
+    useEffect(() => {
+        reset();
     }, []);
 
     const flipBack = () => {
@@ -60,19 +67,29 @@ export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
                 } else {
                     setFlipping(true);
                     setTimeout(flipBack, 1000);
+                    setFallos(fallos + 1);
                 }
             }
             setTarjetas([...tarjetas]);
         }
     }
 
-    const juegoGanado = tarjetas.length > 0 && tarjetas.length == tarjetas.filter(t => t.matched).length
+    const juegoGanado = tarjetas.length > 0 && tarjetas.length == tarjetas.filter(t => t.matched).length && fallos < maxFallos
+    const juegoPerdido = fallos >= maxFallos;
 
     if(juegoGanado){
         SwalForResources.fire({
             title: 'Juego terminado',
             text: 'Ganaste!',
             icon: 'success'
+        });
+    }
+
+    if(juegoPerdido){
+        SwalForResources.fire({
+            title: 'Juego terminado',
+            text: 'Perdiste!',
+            icon: 'error'
         });
     }
 
@@ -90,6 +107,7 @@ export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
                 )}
 
             </Grid>
+            <>Fallos: {fallos}/{maxFallos}</>
             {juegoGanado &&
                 <div style={{
                     margin: 10,
@@ -100,6 +118,21 @@ export const JuegoDeLaMemoria = ({ data, onComplete, showGif }) => {
                         onComplete();
                     }}>
                         Siguiente!
+                    </button>
+                </div>
+            }
+            {juegoPerdido &&
+                <div style={{
+                    margin: 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}>
+                    <button className='bg-orange-400 px-6 py-2 rounded-md text-md mt-7' onClick={() => {
+                        reset();
+                        if(onError)
+                            onError();
+                    }}>
+                        Reintentar!
                     </button>
                 </div>
             }

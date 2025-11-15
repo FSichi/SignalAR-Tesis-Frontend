@@ -77,7 +77,7 @@ export const Login = () => {
                     </div>
 
                     <LoginLinks title={'No tienes una cuenta? Registrate'} url={'/auth/register'} clssName={'mt-7'} idType={0} />
-                    <LoginLinks title={'Necesitas Ayuda?'} url={'/auth/help-page'} idType={0} />
+                    {/* <LoginLinks title={'Necesitas Ayuda?'} url={'/auth/help-page'} idType={0} /> */}
 
                 </div>
 

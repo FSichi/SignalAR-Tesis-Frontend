@@ -1,14 +1,12 @@
 import { useEffect, useMemo } from "react";
-import WheelComponent from "./WheelComponent"
 import { Button, Grid } from "@mui/material";
 import { useState } from "react";
 import './Ruleta.css';
 import { useRef } from "react";
 import { useInterval } from "../../../hooks/useInverval";
-import Swal from "sweetalert2";
 import { SwalForResources } from "../../../utils/ToastSweetAlert";
 
-export const Ruleta = ({ data, onComplete, showGif }) => {
+export const Ruleta = ({ data, onComplete, showGif, onError, evaluacion }) => {
 
     const [cartasSeleccionadas, setCartasSeleccionadas] = useState([]);
     const imagenes = data.imagenes.filter(i => !cartasSeleccionadas.map(c => c.imagen).includes(i));
@@ -122,6 +120,8 @@ export const Ruleta = ({ data, onComplete, showGif }) => {
         setErrores(0);
         setAciertos(0);
         setCartasSeleccionadas([]);
+        if(onError)
+            onError();
     }
 
     if(juegoTerminado){
