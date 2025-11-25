@@ -27,7 +27,7 @@ export const EvaluacionContent = ({ evalId, onCompleteEval }) => {
 
     useEffect(() => {
         //si vamos a guardar el progreso del alumno basta con setear este numero al ultimo ejercicio completado :)
-        setThemeNumber(4);
+        setThemeNumber(0);
     }, [evalId])
 
     useEffect(() => {
