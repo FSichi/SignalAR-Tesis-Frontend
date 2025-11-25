@@ -6,7 +6,6 @@ import { filterSectionsByArea, getSeccionesByName } from "../../helpers/getterOp
 import { useFilterHook } from "../../hooks/useFilter";
 import { TableListSecciones } from "./TableListSecciones";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 
 export const ListadoSecciones = () => {

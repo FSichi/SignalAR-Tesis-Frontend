@@ -8,19 +8,19 @@ import { discapacidad } from "./Enums";
 export const ProfesionesOptions = [
     {
         label: "Fonoaudiologo",
-        value: '1'
+        value: 'FONOAUDIOLOGO'
     },
     {
         label: "Psicologo",
-        value: '2'
+        value: 'PSICOLOGO'
     },
     {
         label: "Terapista Ocupacional",
-        value: '3'
+        value: 'TERAPISTA_OCUPACIONAL'
     },
     {
         label: "Otro",
-        value: '4'
+        value: 'OTRO'
     }
 ];
 

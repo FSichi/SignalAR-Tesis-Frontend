@@ -115,3 +115,71 @@ export const removeAuthentication = () => {
         dispatch(logout())
     }
 }
+
+export const registerProfesional = (userData, navigate) => {
+    return async (dispatch) => {
+
+        dispatch(startLoadingAuthProcess());
+
+        try {
+            // POST -> /register
+            const { data: resp } = await authApi.post(`/register`, userData);
+
+            dispatch(
+                setAuthData({
+                    sessionData: {
+                        user: resp.data.user,
+                        token: resp.data.token
+                    }
+                })
+            );
+
+            ToastNotification.fire({ icon: 'success', title: 'Registro Exitoso' });
+
+            setTimeout(() => {
+                navigate('/app/dashboard');
+            }, 1000);
+
+        } catch (error) {
+
+            console.log(error);
+
+            const errorMsg = error?.response?.data?.data?.error || 'Error en el registro';
+            ToastNotification.fire({ icon: 'error', title: errorMsg });
+        }
+    }
+}
+
+export const registerParticular = (userData, navigate) => {
+    return async (dispatch) => {
+
+        dispatch(startLoadingAuthProcess());
+
+        try {
+            // POST -> /register
+            const { data: resp } = await authApi.post(`/register`, userData);
+
+            dispatch(
+                setAuthData({
+                    sessionData: {
+                        user: resp.data.user,
+                        token: resp.data.token
+                    }
+                })
+            );
+
+            ToastNotification.fire({ icon: 'success', title: 'Registro Exitoso' });
+
+            setTimeout(() => {
+                navigate('/app/dashboard');
+            }, 1000);
+
+        } catch (error) {
+
+            console.log(error);
+
+            const errorMsg = error?.response?.data?.data?.error || 'Error en el registro';
+            ToastNotification.fire({ icon: 'error', title: errorMsg });
+        }
+    }
+}

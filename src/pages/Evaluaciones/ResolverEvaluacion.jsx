@@ -5,7 +5,6 @@ import { getLeccionById } from "../../helpers/getterOptionsForData";
 import { evaluacionesData } from "../../data/evaluaciones";
 import { SeparatorWithoutTextForDashboard } from "../../components/UI/Separator";
 import { crearProgresoEvaluacion, updateProgresoEvaluacion,  } from "../../redux/slices/progreso/thunks"
-import { estadoEvaluacion, estadoLeccion } from "../../helpers/Enums";
 import { EvaluacionContent } from "./EvaluacionComponents/EvaluacionContent";
 import { HeaderGraphicEval } from "../../components/Graphics/HeaderGraphicEval";
 

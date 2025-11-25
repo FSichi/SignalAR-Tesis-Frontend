@@ -9,6 +9,8 @@ import { useEffect } from "react"
 import { checkSessionValidation } from "./redux/slices/auth/thunks"
 import { getUrlRedirectForSession } from "./helpers/getURLRedirectionSession"
 import { getDashboardInfo } from "./redux/slices/dashboard/thunks"
+import { fetchOrCreateProgresoAlumno, getProgresoEvaluacionesByAlumno, getProgresoLeccionesByAlumno, getProgresoSeccionesByAlumno } from "./redux/slices/progreso"
+import { UserRoles } from "./helpers/Enums"
 
 const theme = createTheme({
     palette: {
@@ -34,7 +36,6 @@ export const App = () => {
         if (sessionData?.token) {
             dispatch(checkSessionValidation(sessionData.token, {
                 sucessCallBack: () => {
-                    dispatch(getDashboardInfo(sessionData.token, navigate));
                     navigate(urlRedirect ?? '/app/dashboard', { replace: true });
                 },
                 failureCallBack: () => {
@@ -44,6 +45,26 @@ export const App = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sessionData])
+
+    const { rol, uid } = sessionData?.user || {};
+
+    useEffect(() => {
+
+        if (!rol) return;
+
+        if (rol === UserRoles.PROFESIONAL_ROLE || rol === UserRoles.ADMIN_ROLE) {
+            // Profesional: usa alumnoActivo
+            dispatch(getDashboardInfo(sessionData.token));
+        }
+
+        if (rol === UserRoles.PARTICULAR_ROLE) {
+            dispatch(fetchOrCreateProgresoAlumno(uid));
+            dispatch(getProgresoEvaluacionesByAlumno(uid));
+            dispatch(getProgresoLeccionesByAlumno(uid));
+            dispatch(getProgresoSeccionesByAlumno(uid));
+        }
+
+    }, [rol, sessionData]);
 
     //FALTARIA AGREGAR UNA PANTALLA DE CARGA.
 

@@ -3,15 +3,47 @@ import { seccionesData } from "../../data/secciones";
 import { getLeccionBySeccionId, getSeccionByID } from "../../helpers/getterOptionsForData";
 import { LeccionCard } from "../../components/Cards/LeccionCard";
 import { leccionesData } from "../../data/lecciones";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { crearProgresoSeccion } from "../../redux/slices/progreso/thunks";
+import { UserRoles } from "../../helpers/Enums";
 
 export const VisualizarSeccion = () => {
 
     const { idSeccion } = useParams();
     const { nombre } = getSeccionByID(idSeccion, seccionesData);
     const leccionesFiltered = getLeccionBySeccionId(idSeccion, leccionesData);
-    const { progresoLecciones } = useSelector(state => state.progreso);
+    const { progresoLecciones, progresoSecciones, isProgresoSeccionesLoaded } = useSelector(state => state.progreso);
 
+    const dispatch = useDispatch();
+
+    const { sessionData } = useSelector(state => state.auth);
+    const { alumnoSelected } = useSelector(state => state.alumnos);
+
+    
+    useEffect(() => {
+        if (!isProgresoSeccionesLoaded) return;
+
+        const idAlumno = sessionData.user.rol === UserRoles.PROFESIONAL_ROLE || sessionData.user.rol === UserRoles.ADMIN_ROLE
+            ? alumnoSelected?._id
+            : sessionData.user.uid;
+
+        if (!idAlumno) return;
+
+        const existe = progresoSecciones.some(p => p.seccion == idSeccion);
+
+        if (!existe) {
+            dispatch(crearProgresoSeccion(
+                {
+                    alumno: idAlumno,
+                    seccion: idSeccion,
+                    progreso: 'PENDIENTE',
+                    leccionesCompletadas: 0,
+                },
+                { successCallback: () => { } }
+            ));
+        }
+    }, [progresoSecciones, isProgresoSeccionesLoaded]);
 
     return (
         <>

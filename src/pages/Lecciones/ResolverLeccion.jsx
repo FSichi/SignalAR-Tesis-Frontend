@@ -8,7 +8,7 @@ import { PracticalContent } from "./LectionComponents/PracticalContent";
 import { TheoreticalContent } from "./LectionComponents/TheoreticalContent";
 import { SeparatorWithoutTextForDashboard } from "../../components/UI/Separator";
 import { crearProgresoLeccion, updateProgresoLeccion, updateProgresoSeccion } from "../../redux/slices/progreso/thunks"
-import { estadoLeccion } from "../../helpers/Enums";
+import { estadoLeccion, UserRoles } from "../../helpers/Enums";
 
 export const ResolverLeccion = () => {
     const { idLeccion } = useParams();
@@ -17,6 +17,11 @@ export const ResolverLeccion = () => {
 
     const { progresoLecciones, isProgresoLeccionesLoaded, progresoSecciones } = useSelector((state) => state.progreso);
     const { alumnoSelected } = useSelector((state) => state.alumnos);
+    const { sessionData } = useSelector(state => state.auth);
+
+    const idAlumno = sessionData.user.rol === UserRoles.PROFESIONAL_ROLE || sessionData.user.rol === UserRoles.ADMIN_ROLE
+                ? alumnoSelected?._id
+                : sessionData.user.uid;
 
     // 🧩 Find this lección’s progreso
     const progresoLeccion = progresoLecciones?.find(
@@ -28,7 +33,7 @@ export const ResolverLeccion = () => {
 
     // ✅ Fetch or create progreso if missing
     useEffect(() => {
-        if (isProgresoLeccionesLoaded && !progresoLoaded && alumnoSelected?._id) {
+        if (isProgresoLeccionesLoaded && !progresoLoaded && idAlumno) {
             setProgresoLoaded(true);
 
             if (progresoLeccion) {
@@ -36,10 +41,10 @@ export const ResolverLeccion = () => {
             }
             else {
                 console.log('Progreso no encontrado, creando...')
-                dispatch(crearProgresoLeccion({ alumnoId: alumnoSelected?._id, leccionId: idLeccion, userRol: alumnoSelected?.rol }, { successCallback: () => { } }));
+                dispatch(crearProgresoLeccion({ alumnoId: idAlumno, leccionId: idLeccion, userRol: sessionData.user.rol }, { successCallback: () => { } }));
             }
         }
-    }, [alumnoSelected?._id, idLeccion, dispatch, progresoLoaded, alumnoSelected?.rol, isProgresoLeccionesLoaded]);
+    }, [idAlumno, idLeccion, dispatch, progresoLoaded, isProgresoLeccionesLoaded, sessionData]);
 
     const theoryCompleted = progresoLeccion?.teoria ?? false;
     const { nombre, seccionId } = getLeccionById(idLeccion, leccionesData);
@@ -81,6 +86,7 @@ export const ResolverLeccion = () => {
                     <TheoreticalContent 
                         lectionId={idLeccion}
                         onCompleteTheory={async () => {
+                            console.log(progresoLeccion);
                             if (!progresoLeccion?._id) return;
 
                             try {
@@ -102,6 +108,7 @@ export const ResolverLeccion = () => {
                 <div className="bg-slate-500 rounded-b-lg">
                     <PracticalContent lectionId={idLeccion} 
                         onCompletePractice={async () => {
+                            console.log(progresoLeccion);
                             if (!progresoLeccion?._id) return;
 
                             try {

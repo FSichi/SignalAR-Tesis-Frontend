@@ -10,9 +10,10 @@ const headerTableSeccionesData = ['NOMBRE', 'AREA', 'CANTIDAD LECCIONES', 'PROGR
 
 export const TableListSecciones = ({ seccionesList }) => {
 
-    const { page, handleChangePage, rowsPerPage, handleChangeRowsPerPage } = useTablePaginationHook(6);
-    
+    const { page, handleChangePage, rowsPerPage, handleChangeRowsPerPage } = useTablePaginationHook(5);
     const { progresoSecciones } = useSelector(state => state.progreso);
+
+    console.log(progresoSecciones);
 
     return (
         <TableContainer className='rounded-xl' style={{ maxWidth: 2000 }}>
@@ -28,7 +29,7 @@ export const TableListSecciones = ({ seccionesList }) => {
 
                     {seccionesList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, i) => {
                         const progreso = progresoSecciones.filter(p => p.seccion == row.id)[0];
-                        return progresoSecciones.length > 0 && (
+                        return Array.isArray(progresoSecciones) && (
                             <TableRowSecciones seccion={row} progreso={progreso} key={i} />
                         )
                     })}
@@ -64,7 +65,7 @@ export const TableRowSecciones = ({ seccion, progreso }) => {
 
             <TableCellComponent data={seccion.cantidadLecciones} classNameCustom={'text-gray-100 text-xl'} centerTextCell />
 
-            <TableCellComponent data={`${((progreso.leccionesCompletadas/seccion.cantidadLecciones)*100).toFixed(1)}%`} classNameCustom={'text-gray-100 text-xl'} centerTextCell />
+            <TableCellComponent data={`${((progreso?.leccionesCompletadas ?? 0) / seccion.cantidadLecciones * 100).toFixed(1)}%`} classNameCustom={'text-gray-100 text-xl'} centerTextCell />
 
             <TableCellActionComponent
                 title={'Visualizar'} color={'indigo-500'} linkAction={`../lecciones/visualizar/${seccion.id}`}

@@ -2,24 +2,44 @@ import { useState } from 'react';
 import { HiReply } from "react-icons/hi"
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
+import { useDispatch } from 'react-redux';
 import { ProfesionesOptions, customStyles } from "../../helpers/OptionsSelect"
 import { BackButtonLogin } from "../../components/Buttons/BackButton"
 import { TitleForForms } from "../../components/LoginComponents/TitleForForms"
 import { SeparatorWithoutText } from "../../components/UI/Separator"
 import { LoginButton } from "../../components/Buttons/LoginButton"
 import { NumberInputWithTitle, TextInputWithTitle } from '../../components/Inputs/TextInput';
+import { registerParticular } from "../../redux/slices/auth/thunks";
+import { useNavigate } from 'react-router-dom';
 
 export const ProfesionalPart = ({ setPage }) => {
 
-    const [optionValueProfesion, setOptionValueProfesion] = useState({});
-    console.log(optionValueProfesion);
+    const dispatch = useDispatch();
+    const [optionValueProfesion, setOptionValueProfesion] = useState(null);
 
-    // eslint-disable-next-line no-unused-vars
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+
+    const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
-    }
+
+        const fichaData = {
+            tipoProfesion: optionValueProfesion?.value,
+            matriculaProfesional: data.matriculaProfesional,
+            edad: data.edad,
+            telefono: data.telefono
+        };
+
+        const payload = {
+            nombreCompleto: data.nombreCompleto,
+            correo: data.correo,
+            password: data.password,
+            rol: "PROFESIONAL_ROLE",
+            fichaData
+        };
+
+        dispatch(registerParticular(payload, navigate));
+    };
 
     return (
         <section className="bg-gray-700 px-12 py-10 rounded-xl text-white md:max-w-2xl xl:max-w-4xl w-screen mt-5 mb-5">
@@ -40,13 +60,13 @@ export const ProfesionalPart = ({ setPage }) => {
                     <TextInputWithTitle
                         inputName={'name'} inputType={'text'} inputTitle={'Nombre Completo'}
                         placeholder={'Nombre...'} keyPressEvent={() => { }}
-                        registerForm={{ ...register("nombre", { required: true }) }}
+                        registerForm={{ ...register("nombreCompleto", { required: true }) }}
                     />
 
                     <TextInputWithTitle
-                        inputName={'email'} inputType={'email'} inputTitle={'Correo Electronico'}
+                        inputName={'correo'} inputType={'email'} inputTitle={'Correo Electronico'}
                         placeholder={'mail@email.com'} keyPressEvent={() => { }}
-                        registerForm={{ ...register("email", { required: true, pattern: /^\S+@\S+$/i }) }}
+                        registerForm={{ ...register("correo", { required: true, pattern: /^\S+@\S+$/i }) }}
                         customContainerClassName={'ml-3'}
                     />
 
@@ -73,11 +93,14 @@ export const ProfesionalPart = ({ setPage }) => {
 
                     <div className="w-full">
                         <p className="mt-7 text-xl">Tipo de Profesion</p>
+
                         <Select
-                            className='font-bold text-center text-white mt-2' styles={customStyles}
-                            options={ProfesionesOptions} onChange={setOptionValueProfesion}
-                            isSearchable={false} placeholder={'Seleccione...'}
-                            // defaultValue={optionValueProfesion}
+                            className='font-bold text-center text-white mt-2'
+                            styles={customStyles}
+                            options={ProfesionesOptions}
+                            onChange={setOptionValueProfesion}
+                            isSearchable={false}
+                            placeholder={'Seleccione...'}
                             theme={(theme) => ({
                                 ...theme,
                                 colors: {
@@ -92,13 +115,23 @@ export const ProfesionalPart = ({ setPage }) => {
                     <TextInputWithTitle
                         inputName={'matriculaNumber'} inputType={'text'} inputTitle={'Matricula Profesional'}
                         placeholder={'Numero de Matricula'} keyPressEvent={() => { }}
-                        registerForm={{ ...register("matricula", { required: true }) }}
+                        registerForm={{ ...register("matriculaProfesional", { required: true }) }}
                         customContainerClassName={'ml-3'}
                     />
 
                 </div>
 
-                <LoginButton actionMethod={() => { }} title={'Solicitar Licencia'} type={'submit'} />
+                <div className="flex justify-between">
+                    <TextInputWithTitle
+                        inputName={'password'} inputType={'password'} inputTitle={'Password'}
+                        placeholder={'Password'} keyPressEvent={() => { }}
+                        registerForm={{ ...register("password", { required: true }) }}
+                        customContainerClassName={'ml-3'}
+                    />
+
+                </div>
+
+                <LoginButton title={'Solicitar Licencia'} type={'submit'} />
 
             </form>
 

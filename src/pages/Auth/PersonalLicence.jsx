@@ -2,23 +2,42 @@ import { useState } from "react";
 import { HiReply } from 'react-icons/hi';
 import Select from 'react-select';
 import { BackButtonLogin } from "../../components/Buttons/BackButton";
-import { LoginButton } from "../../components/Buttons/LoginButton"
+import { LoginButton } from "../../components/Buttons/LoginButton";
 import { TitleForForms } from "../../components/LoginComponents/TitleForForms";
 import { SeparatorWithoutText } from "../../components/UI/Separator";
 import { DiscapacidadOptions, customStyles } from "../../helpers/OptionsSelect";
 import { useForm } from "react-hook-form";
 import { NumberInputWithTitle, TextInputWithTitle } from "../../components/Inputs/TextInput";
+import { useDispatch } from "react-redux";
+import { registerParticular } from "../../redux/slices/auth/thunks";
+import { useNavigate } from "react-router-dom";
 
 export const PersonalLicence = ({ setPage }) => {
 
-    const [optionValueDiscapacidad, setOptionValueDiscapacidad] = useState({});
+    const [optionValueDiscapacidad, setOptionValueDiscapacidad] = useState(null);
 
-    // eslint-disable-next-line no-unused-vars
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        console.log(data);
-    }
+
+        const fichaData = {
+            edad: data.edad,
+            telefono: data.telefono,
+            tipoDiscapacidad: optionValueDiscapacidad?.value || null
+        };
+
+        const payload = {
+            nombreCompleto: data.nombreCompleto,
+            correo: data.correo,
+            password: data.password,
+            rol: "PARTICULAR_ROLE",
+            fichaData
+        };
+
+        dispatch(registerParticular(payload, navigate));
+    };
 
     return (
         <div className="bg-gray-700 px-12 py-16 rounded-xl text-white md:max-w-2xl xl:max-w-4xl w-screen">
@@ -37,15 +56,15 @@ export const PersonalLicence = ({ setPage }) => {
                 <div className="flex justify-between text-center">
 
                     <TextInputWithTitle
-                        inputName={'name'} inputType={'text'} inputTitle={'Nombre Completo'}
+                        inputName={'nombreCompleto'} inputType={'text'} inputTitle={'Nombre Completo'}
                         placeholder={'Nombre...'} keyPressEvent={() => { }}
-                        registerForm={{ ...register("nombre", { required: true }) }}
+                        registerForm={{ ...register("nombreCompleto", { required: true }) }}
                     />
 
                     <TextInputWithTitle
-                        inputName={'email'} inputType={'email'} inputTitle={'Correo Electronico'}
+                        inputName={'correo'} inputType={'email'} inputTitle={'Correo Electronico'}
                         placeholder={'mail@email.com'} keyPressEvent={() => { }}
-                        registerForm={{ ...register("email", { required: true, pattern: /^\S+@\S+$/i }) }}
+                        registerForm={{ ...register("correo", { required: true, pattern: /^\S+@\S+$/i }) }}
                         customContainerClassName={'ml-3'}
                     />
 
@@ -60,7 +79,7 @@ export const PersonalLicence = ({ setPage }) => {
                     />
 
                     <TextInputWithTitle
-                        inputName={'phone'} inputType={'text'} inputTitle={'Telefono de Contacto'}
+                        inputName={'telefono'} inputType={'text'} inputTitle={'Telefono de Contacto'}
                         placeholder={'Telefono (+54)'} keyPressEvent={() => { }}
                         registerForm={{ ...register("telefono", { required: true }) }}
                         customContainerClassName={'ml-3'}
@@ -71,10 +90,12 @@ export const PersonalLicence = ({ setPage }) => {
                 <div className="w-full text-center">
                     <p className="mt-7 text-xl">Tipo de Discapacidad</p>
                     <Select
-                        className='font-bold text-center text-white mt-2' styles={customStyles}
-                        options={DiscapacidadOptions} onChange={setOptionValueDiscapacidad}
-                        isSearchable={false} placeholder={'Seleccione...'}
-                        // defaultValue={optionValueProfesion}
+                        className='font-bold text-center text-white mt-2'
+                        styles={customStyles}
+                        options={DiscapacidadOptions}
+                        onChange={setOptionValueDiscapacidad}
+                        isSearchable={false}
+                        placeholder={'Seleccione...'}
                         theme={(theme) => ({
                             ...theme,
                             colors: {
@@ -86,13 +107,19 @@ export const PersonalLicence = ({ setPage }) => {
                     />
                 </div>
 
-                <LoginButton
-                    actionMethod={() => { }}
-                    title={'Solicitar Licencia'} type={'submit'}
-                />
+                <div className="flex justify-between text-center mt-5">
+                    <TextInputWithTitle
+                        inputName={'password'} inputType={'password'} inputTitle={'Password'}
+                        placeholder={'Password'} keyPressEvent={() => { }}
+                        registerForm={{ ...register("password", { required: true }) }}
+                        customContainerClassName={'w-full'}
+                    />
+                </div>
+
+                <LoginButton title={'Solicitar Licencia'} type={'submit'} />
 
             </form>
 
         </div>
-    )
-}
+    );
+};
