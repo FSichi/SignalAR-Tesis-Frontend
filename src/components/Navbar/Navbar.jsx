@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Popover, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import { alumnos, menuCelular, perfil, aprendizaje } from './logs'
+import { alumnos, menuCelular, aprendizaje } from './logs'
 import { NavbarLogo } from './NavbarComponents/NavbarLogo'
 import { HamburguerButton, NavbarGroupButton, NavbarProfileButton } from './NavbarComponents/NavbarButtons'
 import { GroupPrincipalPanel } from './NavbarComponents/GroupOptions'
@@ -41,7 +41,7 @@ export const NavbarDesktop = ({ licenseType }) => {
 
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
-                    {/* PERFIL */}
+                    {/* PERFIL
                     <Popover className="relative">
                         {({ open, close }) => (
                             <>
@@ -58,7 +58,7 @@ export const NavbarDesktop = ({ licenseType }) => {
                                 </Transition>
                             </>
                         )}
-                    </Popover>
+                    </Popover> */}
 
                 </div>
             </div>
