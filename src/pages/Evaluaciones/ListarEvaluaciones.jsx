@@ -7,11 +7,11 @@ import { useFilterHook } from "../../hooks/useFilter";
 import { TableListEvaluaciones } from "./TableListEvaluaciones";
 
 export const ListarEvaluaciones = () => {
-    const {progresoLecciones} = useSelector(state => state.progreso);
+    const { progresoLecciones } = useSelector(state => state.progreso);
 
     const evaluacionesDisponibles = evaluacionesData.filter(e => {
         const progresoLeccionAsociada = progresoLecciones.filter(p => p.leccion == e.leccionAsociada)[0];
-        if(progresoLeccionAsociada && progresoLeccionAsociada.progreso === "COMPLETADO")
+        if (progresoLeccionAsociada && progresoLeccionAsociada.progreso === "COMPLETADO")
             return true;
         return false;
     });
@@ -30,11 +30,17 @@ export const ListarEvaluaciones = () => {
 
             <div className="mt-2 overflow-x-auto">
 
-                {(!hasSearchQuery) && <TableListEvaluaciones evaluacionesList={evaluacionesDisponibles} />}
+                {(evaluacionesDisponibles.length === 0)
+                    ? <MessageDataCard message={'No existen evaluaciones disponibles, realiza lecciones primero!'} type={'error'} />
+                    : <>
 
-                {(hasSearchQuery && hasFilteredEvaluaciones) && <TableListEvaluaciones evaluacionesList={evaluacionesFilter} />}
+                        {(!hasSearchQuery) && <TableListEvaluaciones evaluacionesList={evaluacionesDisponibles} />}
 
-                {(hasSearchQuery && !hasFilteredEvaluaciones) && <MessageDataCard message={'No Existe la Evaluacion que buscas'} type={'error'} />}
+                        {(hasSearchQuery && hasFilteredEvaluaciones) && <TableListEvaluaciones evaluacionesList={evaluacionesFilter} />}
+
+                        {(hasSearchQuery && !hasFilteredEvaluaciones) && <MessageDataCard message={'No Existe la Evaluacion que buscas'} type={'error'} />}
+                    </>
+                }
 
             </div>
 
