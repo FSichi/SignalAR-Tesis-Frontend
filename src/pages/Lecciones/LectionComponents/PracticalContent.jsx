@@ -21,7 +21,7 @@ export const PracticalContent = ({ lectionId, onCompletePractice }) => {
 
     useEffect(() => {
         //si vamos a guardar el progreso del alumno basta con setear este numero al ultimo ejercicio completado :)
-        setThemeNumber(0);
+        setThemeNumber(4);
     }, [lectionId])
 
     useEffect(() => {
@@ -71,10 +71,6 @@ export const PracticalContent = ({ lectionId, onCompletePractice }) => {
             },
             didOpen: () => {
                 Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
             },
             willClose: () => {
                 clearInterval(timerInterval);
@@ -95,10 +91,6 @@ export const PracticalContent = ({ lectionId, onCompletePractice }) => {
             }).then(() => {
                 navigate('/app/dashboard', { replace: true });
             });
-
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
         });
     }
 

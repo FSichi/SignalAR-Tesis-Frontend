@@ -193,7 +193,7 @@ export const Ruleta = ({ data, onComplete, showGif, onError, evaluacion }) => {
                                 src={image}
                                 style={{ aspectRatio: 1 }}
                                 onClick={() => {
-                                    logState()
+                                    // logState()
                                     if (!juegoTerminado && juegoEmpezado && ruletaParada)
                                         seleccionar({ palabra: palabras[index], imagen: imagenes[index] });
                                 }} />

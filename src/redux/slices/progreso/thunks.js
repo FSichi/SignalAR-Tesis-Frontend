@@ -136,6 +136,9 @@ export const crearProgresoLeccion = ({ alumnoId, leccionId, userRol }, { success
                 dispatch(
                     setProgresoAlumnoData({ progresoAlumno: { ...progresoAlumno, lecciones: updatedLecciones } })
                 );
+                dispatch(
+                    setProgresoLecciones(updatedLecciones)
+                );
 
                 ToastNotification.fire({
                     icon: "success",
@@ -188,17 +191,45 @@ export const crearProgresoSeccion = (data, { successCallback }) => {
             const { data: responseData } = await AppAPI(token).post(`/progreso/seccion`, data);
 
             if (responseData.status === ResponseStatus.OK) {
-                ToastNotification.fire({ icon: 'success', title: 'Progreso de sección creado con éxito' });
+
+                const { progresoAlumno, progresoSecciones } = getState().progreso;
+
+                // Append new item to arrays
+                const updatedSecciones = [
+                    ...(progresoSecciones || []),
+                    responseData.data,
+                ];
+
+                const updatedProgresoAlumno = {
+                    ...progresoAlumno,
+                    secciones: [
+                        ...(progresoAlumno?.secciones || []),
+                        responseData.data,
+                    ],
+                };
+
+                // Dispatch updates
+                dispatch(setProgresoAlumnoData({ progresoAlumno: updatedProgresoAlumno }));
+                dispatch(setProgresoSecciones(updatedSecciones));
+
+                ToastNotification.fire({
+                    icon: 'success',
+                    title: 'Progreso de sección creado con éxito'
+                });
+
                 successCallback?.();
-                dispatch(getProgresoSecciones(data.alumno));
             }
 
         } catch (error) {
             AuthTokenVerification(error, dispatch);
-            ToastNotification.fire({ icon: 'error', title: 'Error al crear progreso de sección' });
+            ToastNotification.fire({
+                icon: 'error',
+                title: 'Error al crear progreso de sección'
+            });
         }
     };
 };
+
 
 
 // 🟥 Crear ProgresoEvaluación
@@ -211,14 +242,41 @@ export const crearProgresoEvaluacion = (data, { successCallback }) => {
             const { data: responseData } = await AppAPI(token).post(`/progreso/evaluacion`, data);
 
             if (responseData.status === ResponseStatus.OK) {
-                ToastNotification.fire({ icon: 'success', title: 'Progreso de evaluación creado con éxito' });
+
+                const { progresoAlumno, progresoEvaluaciones } = getState().progreso;
+
+                // Build new arrays
+                const updatedEvaluaciones = [
+                    ...(progresoEvaluaciones || []),
+                    responseData.data,
+                ];
+
+                const updatedProgresoAlumno = {
+                    ...progresoAlumno,
+                    evaluaciones: [
+                        ...(progresoAlumno?.evaluaciones || []),
+                        responseData.data,
+                    ],
+                };
+
+                // Dispatch both
+                dispatch(setProgresoAlumnoData({ progresoAlumno: updatedProgresoAlumno }));
+                dispatch(setProgresoEvaluaciones(updatedEvaluaciones));
+
+                ToastNotification.fire({
+                    icon: 'success',
+                    title: 'Progreso de evaluación creado con éxito'
+                });
+
                 successCallback?.();
-                dispatch(getProgresoEvaluaciones(data.alumno));
             }
 
         } catch (error) {
             AuthTokenVerification(error, dispatch);
-            ToastNotification.fire({ icon: 'error', title: 'Error al crear progreso de evaluación' });
+            ToastNotification.fire({
+                icon: 'error',
+                title: 'Error al crear progreso de evaluación'
+            });
         }
     };
 };
@@ -390,10 +448,8 @@ export const updateProgresoEvaluacion = (data) => {
     try {
       const { data: response } = await AppAPI(token).put(`/progreso/evaluacion`, data);
       if (response.status === ResponseStatus.OK) {
-
-        // 🔄 Update progresoAlumno in Redux if needed
         const updatedEvaluaciones = progresoEvaluaciones.map((e) =>
-          e._id === data._id ? response.data : l
+          e._id === response.data._id ? response.data : e
         );
 
         dispatch(
@@ -403,6 +459,7 @@ export const updateProgresoEvaluacion = (data) => {
         );
       }
     } catch (err) {
+        console.error(err);
       AuthTokenVerification(err, dispatch);
     }
   };

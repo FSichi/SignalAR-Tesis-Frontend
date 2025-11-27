@@ -7,9 +7,6 @@ import { useNavigate } from "react-router-dom"
 import { SwalForResources } from "../../../utils/ToastSweetAlert"
 
 export const EvaluacionContent = ({ evalId, onCompleteEval }) => {
-
-    console.log(evalId)
-
     const navigate = useNavigate();
 
     const [sidebarData, setSidebarData] = useState([]);
@@ -23,7 +20,7 @@ export const EvaluacionContent = ({ evalId, onCompleteEval }) => {
 
     const [cantidadErrores, setCantidadErrores] = useState(0);
     const [mostrarPerdioModal, setMostrarPerdioModal] = useState(false);
-    const maxErrores = 5;
+    const maxErrores = 2;
 
     useEffect(() => {
         //si vamos a guardar el progreso del alumno basta con setear este numero al ultimo ejercicio completado :)
@@ -84,8 +81,7 @@ export const EvaluacionContent = ({ evalId, onCompleteEval }) => {
     }
 
     const handleError = () => {
-        console.log("ERROR AAAAA")
-        if(cantidadErrores == 4)
+        if(cantidadErrores == maxErrores - 1)
             setMostrarPerdioModal(true);
         setCantidadErrores(cantidadErrores + 1);
     }
@@ -108,10 +104,6 @@ export const EvaluacionContent = ({ evalId, onCompleteEval }) => {
             },
             didOpen: () => {
                 Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
             },
             willClose: () => {
                 clearInterval(timerInterval);
@@ -132,10 +124,6 @@ export const EvaluacionContent = ({ evalId, onCompleteEval }) => {
             }).then(() => {
                 navigate('/app/dashboard', { replace: true });
             });
-
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
         });
     }
 

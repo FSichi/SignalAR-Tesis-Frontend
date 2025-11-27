@@ -7,6 +7,7 @@ import { SeparatorWithoutTextForDashboard } from "../../components/UI/Separator"
 import { crearProgresoEvaluacion, updateProgresoEvaluacion,  } from "../../redux/slices/progreso/thunks"
 import { EvaluacionContent } from "./EvaluacionComponents/EvaluacionContent";
 import { HeaderGraphicEval } from "../../components/Graphics/HeaderGraphicEval";
+import { UserRoles } from "../../helpers/Enums";
 
 export const ResolverEvaluacion = () => {
     const { idEvaluacion } = useParams();
@@ -15,7 +16,11 @@ export const ResolverEvaluacion = () => {
 
     const { progresoEvaluaciones, isProgresoEvaluacionesLoaded, progresoSecciones } = useSelector((state) => state.progreso);
     const { alumnoSelected } = useSelector((state) => state.alumnos);
+    const { sessionData } = useSelector(state => state.auth);
 
+    const idAlumno = sessionData.user.rol === UserRoles.PROFESIONAL_ROLE || sessionData.user.rol === UserRoles.ADMIN_ROLE
+                ? alumnoSelected?._id
+                : sessionData.user.uid;
     // 🧩 Find this evaluación’s progreso
     const progresoEvaluacion = progresoEvaluaciones?.find(
         (p) => p.evaluacion === idEvaluacion
@@ -26,7 +31,7 @@ export const ResolverEvaluacion = () => {
 
     // ✅ Fetch or create progreso if missing
     useEffect(() => {
-        if (isProgresoEvaluacionesLoaded && !progresoLoaded && alumnoSelected?._id) {
+        if (isProgresoEvaluacionesLoaded && !progresoLoaded && idAlumno) {
             setProgresoLoaded(true);
 
             if (progresoEvaluacion) {
@@ -34,13 +39,12 @@ export const ResolverEvaluacion = () => {
             }
             else {
                 console.log('Progreso no encontrado, creando...')
-                dispatch(crearProgresoEvaluacion({ alumno: alumnoSelected?._id, evaluacion: idEvaluacion, progreso: 'PENDIENTE' }, { successCallback: () => { } }));
+                dispatch(crearProgresoEvaluacion({ alumno: idAlumno, evaluacion: idEvaluacion, progreso: 'PENDIENTE' }, { successCallback: () => { } }));
             }
         }
-    }, [alumnoSelected?._id, idEvaluacion, dispatch, progresoLoaded, alumnoSelected?.rol, isProgresoEvaluacionesLoaded]);
-    const { nombreEvaluacion, seccionId } = getLeccionById(idEvaluacion, evaluacionesData);
+    }, [idAlumno, idEvaluacion, dispatch, progresoLoaded, isProgresoEvaluacionesLoaded]);
 
-    const progresoSeccion = progresoSecciones?.filter(s => s.seccion == seccionId)[0];
+    const { nombreEvaluacion, seccionId } = getLeccionById(idEvaluacion, evaluacionesData);
 
     return (
         <>
@@ -60,7 +64,10 @@ export const ResolverEvaluacion = () => {
             <div className="bg-slate-500 rounded-b-lg">
                 <EvaluacionContent evalId={idEvaluacion} 
                     onCompleteEval={async (aprobada) => {
-                        if (!progresoEvaluacion?._id) return;
+                        if (!progresoEvaluacion?._id){
+                            console.error(`Intento de actualizar el progreso de la evaluacion: ${idEvaluacion} con progreso inexistente. Abortando...`)
+                            return;
+                        }
 
                         try {
                             // Call thunk to update backend

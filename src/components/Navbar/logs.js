@@ -34,6 +34,15 @@ export const aprendizaje = [
     }
 ]
 
+export const perfil = [
+    // {
+    //     name: 'Perfil',
+    //     description: 'Revisa tu informacion personal.',
+    //     href: '/app/perfil',
+    //     icon: SupportIcon,
+    // },
+]
+
 export const menuCelular = [
     {
         name: 'Estado Academico',

@@ -13,8 +13,6 @@ export const TableListSecciones = ({ seccionesList }) => {
     const { page, handleChangePage, rowsPerPage, handleChangeRowsPerPage } = useTablePaginationHook(5);
     const { progresoSecciones } = useSelector(state => state.progreso);
 
-    console.log(progresoSecciones);
-
     return (
         <TableContainer className='rounded-xl' style={{ maxWidth: 2000 }}>
 

@@ -7,10 +7,18 @@ import { useFilterHook } from "../../hooks/useFilter";
 import { TableListEvaluaciones } from "./TableListEvaluaciones";
 
 export const ListarEvaluaciones = () => {
+    const {progresoLecciones} = useSelector(state => state.progreso);
+
+    const evaluacionesDisponibles = evaluacionesData.filter(e => {
+        const progresoLeccionAsociada = progresoLecciones.filter(p => p.leccion == e.leccionAsociada)[0];
+        if(progresoLeccionAsociada && progresoLeccionAsociada.progreso === "COMPLETADO")
+            return true;
+        return false;
+    });
 
     const {
         search, handleInputChange, dataFilter: evaluacionesFilter, hasSearchQuery, hasFilteredData: hasFilteredEvaluaciones
-    } = useFilterHook(evaluacionesData, getEvaluacionesByName);
+    } = useFilterHook(evaluacionesDisponibles, getEvaluacionesByName);
 
     return (
         <section>
@@ -22,7 +30,7 @@ export const ListarEvaluaciones = () => {
 
             <div className="mt-2 overflow-x-auto">
 
-                {(!hasSearchQuery) && <TableListEvaluaciones evaluacionesList={evaluacionesData} />}
+                {(!hasSearchQuery) && <TableListEvaluaciones evaluacionesList={evaluacionesDisponibles} />}
 
                 {(hasSearchQuery && hasFilteredEvaluaciones) && <TableListEvaluaciones evaluacionesList={evaluacionesFilter} />}
 

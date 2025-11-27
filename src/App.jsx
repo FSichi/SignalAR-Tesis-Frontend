@@ -38,7 +38,7 @@ export const App = () => {
                 sucessCallBack: () => {
                     navigate(urlRedirect ?? '/app/dashboard', { replace: true });
                 },
-                failureCallBack: () => {
+                failureCallback: () => {
                     navigate('/auth/login', { replace: true });
                 }
             }));

@@ -86,8 +86,10 @@ export const ResolverLeccion = () => {
                     <TheoreticalContent 
                         lectionId={idLeccion}
                         onCompleteTheory={async () => {
-                            console.log(progresoLeccion);
-                            if (!progresoLeccion?._id) return;
+                            if (!progresoLeccion?._id) {
+                                console.error(`Intento de actualizar el progreso de la leccion: ${idLeccion} con progreso inexistente. Abortando...`)
+                                return;
+                            }
 
                             try {
                                 // Call thunk to update backend
@@ -108,8 +110,10 @@ export const ResolverLeccion = () => {
                 <div className="bg-slate-500 rounded-b-lg">
                     <PracticalContent lectionId={idLeccion} 
                         onCompletePractice={async () => {
-                            console.log(progresoLeccion);
-                            if (!progresoLeccion?._id) return;
+                            if (!progresoLeccion?._id) {
+                                console.error(`Intento de actualizar el progreso de la leccion: ${idLeccion} con progreso inexistente. Abortando...`)
+                                return;
+                            }
 
                             try {
                                 // Si no estaba completada la leccion, actualizar el estado de la seccion para tener una leccion completada mas

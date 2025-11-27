@@ -104,7 +104,8 @@ export const checkSessionValidation = (token, {sucessCallBack, failureCallback})
             if (error.response.data.status === ResponseStatus.FAILED) {
                 ToastNotification.fire({ icon: 'error', title: 'Sesion Caducada' });
                 dispatch(setAuthData({ sessionData: null, authenticated: false }));
-                failureCallback();
+                if(failureCallback)
+                    failureCallback();
             }
         }
     }

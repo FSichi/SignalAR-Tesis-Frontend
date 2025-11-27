@@ -1271,9 +1271,1222 @@ export const TemasEjemplosData = [
             },
         ]
     },
+
+    //------------------------------------------LECCION MEDIOS DE COMUNICACION------------------------------------------------
+    {
+        id: 1,
+        idLeccion: '6908fd9ab81b2e111cdfa4f5',
+        contenidoTeorico: [
+            {
+                id: 1,
+                tema: 'Mama',
+                completado: false,
+                enCurso: true,
+                img: mamaImg,
+                gif: mamaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> pone la mesa. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> MAMA </span> de Malena toma jugo. </p>
+                            <p class="text-gray-900 p-3">Me gusta cuando mi <span class="text-cyan-500 font-bold"> MAMA </span> me abraza. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> cocina rico. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> canta. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> juega conmigo. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 2,
+                tema: 'Papa',
+                completado: false,
+                enCurso: false,
+                img: papaImg,
+                gif: papaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> trabaja mucho. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> PAPA </span> de Martin es alto. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> es un superheroe. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> toma mate con mi mama. </p>
+                            <p class="text-gray-900 p-3">Mañana veremos un partido de futbol con mi <span class="text-cyan-500 font-bold"> PAPA </span>. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 3,
+                tema: 'Hermano',
+                completado: false,
+                enCurso: false,
+                img: hermanoImg,
+                gif: hermanoGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> juega al futbol. </p>
+                            <p class="text-gray-900 p-3">Tengo un <span class="text-cyan-500 font-bold"> HERMANO </span> mayor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> pequeño se llama Carlos. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANO </span> le gusta leerme cuentos. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANO </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> mayor se llama Luis. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 4,
+                tema: 'Hermana',
+                enCurso: false,
+                completado: false,
+                img: hermanaImg,
+                gif: hermanaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> juega al voley. </p>
+                            <p class="text-gray-900 p-3">Tengo una <span class="text-cyan-500 font-bold"> HERMANA </span> menor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> pequeña se llama Maria. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANA </span> le gusta dibujar. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> mayor se llama Antonela. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 5,
+                tema: 'Abuelo',
+                completado: false,
+                enCurso: false,
+                img: abueloImg,
+                gif: abueloGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me enseña a pescar. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Ana es muy inteligente. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me lleva al parque en bicicleta. </p>
+                            <p class="text-gray-900 p-3">Los sabados, visito a mi <span class="text-cyan-500 font-bold"> ABUELO </span>. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> ABUELO </span> le gusta contar chistes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me da caramelos. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Juan tiene un jardin hermoso. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 6,
+                tema: 'Abuela',
+                completado: false,
+                enCurso: false,
+                img: abuelaImg,
+                gif: abuelaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me cuenta historias. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> ABUELA </span> de Maria cocina delicioso. </p>
+                            <p class="text-gray-900 p-3">Hoy ire a la casa de mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Los domingos, visito a mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span>  y yo paseamos por el parque. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> siempre me sonrie. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me regala caramelos. </p>
+                        `
+                    },
+                ]
+            },
+
+        ],
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
+
+    //------------------------------------------LECCION GEOGRAFIA------------------------------------------------
+    {
+        id: 1,
+        idLeccion: '6908fd9e6a9378baa4907847',
+        contenidoTeorico: [
+            {
+                id: 1,
+                tema: 'Mama',
+                completado: false,
+                enCurso: true,
+                img: mamaImg,
+                gif: mamaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> pone la mesa. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> MAMA </span> de Malena toma jugo. </p>
+                            <p class="text-gray-900 p-3">Me gusta cuando mi <span class="text-cyan-500 font-bold"> MAMA </span> me abraza. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> cocina rico. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> canta. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> juega conmigo. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 2,
+                tema: 'Papa',
+                completado: false,
+                enCurso: false,
+                img: papaImg,
+                gif: papaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> trabaja mucho. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> PAPA </span> de Martin es alto. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> es un superheroe. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> toma mate con mi mama. </p>
+                            <p class="text-gray-900 p-3">Mañana veremos un partido de futbol con mi <span class="text-cyan-500 font-bold"> PAPA </span>. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 3,
+                tema: 'Hermano',
+                completado: false,
+                enCurso: false,
+                img: hermanoImg,
+                gif: hermanoGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> juega al futbol. </p>
+                            <p class="text-gray-900 p-3">Tengo un <span class="text-cyan-500 font-bold"> HERMANO </span> mayor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> pequeño se llama Carlos. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANO </span> le gusta leerme cuentos. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANO </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> mayor se llama Luis. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 4,
+                tema: 'Hermana',
+                enCurso: false,
+                completado: false,
+                img: hermanaImg,
+                gif: hermanaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> juega al voley. </p>
+                            <p class="text-gray-900 p-3">Tengo una <span class="text-cyan-500 font-bold"> HERMANA </span> menor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> pequeña se llama Maria. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANA </span> le gusta dibujar. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> mayor se llama Antonela. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 5,
+                tema: 'Abuelo',
+                completado: false,
+                enCurso: false,
+                img: abueloImg,
+                gif: abueloGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me enseña a pescar. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Ana es muy inteligente. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me lleva al parque en bicicleta. </p>
+                            <p class="text-gray-900 p-3">Los sabados, visito a mi <span class="text-cyan-500 font-bold"> ABUELO </span>. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> ABUELO </span> le gusta contar chistes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me da caramelos. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Juan tiene un jardin hermoso. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 6,
+                tema: 'Abuela',
+                completado: false,
+                enCurso: false,
+                img: abuelaImg,
+                gif: abuelaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me cuenta historias. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> ABUELA </span> de Maria cocina delicioso. </p>
+                            <p class="text-gray-900 p-3">Hoy ire a la casa de mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Los domingos, visito a mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span>  y yo paseamos por el parque. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> siempre me sonrie. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me regala caramelos. </p>
+                        `
+                    },
+                ]
+            },
+
+        ],
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
+    //------------------------------------------LECCION SUMA------------------------------------------------
+    {
+        id: 1,
+        idLeccion: '6908fda2f18dfff728f7613f',
+        contenidoTeorico: [
+            {
+                id: 1,
+                tema: 'Mama',
+                completado: false,
+                enCurso: true,
+                img: mamaImg,
+                gif: mamaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> pone la mesa. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> MAMA </span> de Malena toma jugo. </p>
+                            <p class="text-gray-900 p-3">Me gusta cuando mi <span class="text-cyan-500 font-bold"> MAMA </span> me abraza. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> cocina rico. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> canta. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> juega conmigo. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 2,
+                tema: 'Papa',
+                completado: false,
+                enCurso: false,
+                img: papaImg,
+                gif: papaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> trabaja mucho. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> PAPA </span> de Martin es alto. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> es un superheroe. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> toma mate con mi mama. </p>
+                            <p class="text-gray-900 p-3">Mañana veremos un partido de futbol con mi <span class="text-cyan-500 font-bold"> PAPA </span>. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 3,
+                tema: 'Hermano',
+                completado: false,
+                enCurso: false,
+                img: hermanoImg,
+                gif: hermanoGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> juega al futbol. </p>
+                            <p class="text-gray-900 p-3">Tengo un <span class="text-cyan-500 font-bold"> HERMANO </span> mayor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> pequeño se llama Carlos. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANO </span> le gusta leerme cuentos. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANO </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> mayor se llama Luis. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 4,
+                tema: 'Hermana',
+                enCurso: false,
+                completado: false,
+                img: hermanaImg,
+                gif: hermanaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> juega al voley. </p>
+                            <p class="text-gray-900 p-3">Tengo una <span class="text-cyan-500 font-bold"> HERMANA </span> menor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> pequeña se llama Maria. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANA </span> le gusta dibujar. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> mayor se llama Antonela. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 5,
+                tema: 'Abuelo',
+                completado: false,
+                enCurso: false,
+                img: abueloImg,
+                gif: abueloGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me enseña a pescar. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Ana es muy inteligente. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me lleva al parque en bicicleta. </p>
+                            <p class="text-gray-900 p-3">Los sabados, visito a mi <span class="text-cyan-500 font-bold"> ABUELO </span>. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> ABUELO </span> le gusta contar chistes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me da caramelos. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Juan tiene un jardin hermoso. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 6,
+                tema: 'Abuela',
+                completado: false,
+                enCurso: false,
+                img: abuelaImg,
+                gif: abuelaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me cuenta historias. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> ABUELA </span> de Maria cocina delicioso. </p>
+                            <p class="text-gray-900 p-3">Hoy ire a la casa de mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Los domingos, visito a mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span>  y yo paseamos por el parque. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> siempre me sonrie. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me regala caramelos. </p>
+                        `
+                    },
+                ]
+            },
+
+        ],
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
+
+    //------------------------------------------LECCION RESTA------------------------------------------------
+    {
+        id: 1,
+        idLeccion: '6908fda76ae94ddc6eeabb9a',
+        contenidoTeorico: [
+            {
+                id: 1,
+                tema: 'Mama',
+                completado: false,
+                enCurso: true,
+                img: mamaImg,
+                gif: mamaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> pone la mesa. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> MAMA </span> de Malena toma jugo. </p>
+                            <p class="text-gray-900 p-3">Me gusta cuando mi <span class="text-cyan-500 font-bold"> MAMA </span> me abraza. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> cocina rico. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> canta. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> MAMA </span> juega conmigo. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 2,
+                tema: 'Papa',
+                completado: false,
+                enCurso: false,
+                img: papaImg,
+                gif: papaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> me ama. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> trabaja mucho. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> PAPA </span> de Martin es alto. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> es un superheroe. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> PAPA </span> toma mate con mi mama. </p>
+                            <p class="text-gray-900 p-3">Mañana veremos un partido de futbol con mi <span class="text-cyan-500 font-bold"> PAPA </span>. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 3,
+                tema: 'Hermano',
+                completado: false,
+                enCurso: false,
+                img: hermanoImg,
+                gif: hermanoGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> juega al futbol. </p>
+                            <p class="text-gray-900 p-3">Tengo un <span class="text-cyan-500 font-bold"> HERMANO </span> mayor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> pequeño se llama Carlos. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANO </span> le gusta leerme cuentos. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANO </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANO </span> mayor se llama Luis. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 4,
+                tema: 'Hermana',
+                enCurso: false,
+                completado: false,
+                img: hermanaImg,
+                gif: hermanaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo nos divertimos mucho. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> juega al voley. </p>
+                            <p class="text-gray-900 p-3">Tengo una <span class="text-cyan-500 font-bold"> HERMANA </span> menor. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> pequeña se llama Maria. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> HERMANA </span> le gusta dibujar. </p>
+                            <p class="text-gray-900 p-3">Hoy voy al parque con mi <span class="text-cyan-500 font-bold"> HERMANA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> y yo compartimos juguetes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> HERMANA </span> mayor se llama Antonela. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 5,
+                tema: 'Abuelo',
+                completado: false,
+                enCurso: false,
+                img: abueloImg,
+                gif: abueloGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me enseña a pescar. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Ana es muy inteligente. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me lleva al parque en bicicleta. </p>
+                            <p class="text-gray-900 p-3">Los sabados, visito a mi <span class="text-cyan-500 font-bold"> ABUELO </span>. </p>
+                            <p class="text-gray-900 p-3">A mi <span class="text-cyan-500 font-bold"> ABUELO </span> le gusta contar chistes. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELO </span> me da caramelos. </p>
+                            <p class="text-gray-900 p-3">El <span class="text-cyan-500 font-bold"> ABUELO </span> de Juan tiene un jardin hermoso. </p>
+                        `
+                    },
+                ]
+            },
+            {
+                id: 6,
+                tema: 'Abuela',
+                completado: false,
+                enCurso: false,
+                img: abuelaImg,
+                gif: abuelaGif,
+                content: [
+                    {
+                        id: 1,
+                        title: 'parrafo1',
+                        body: `
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me cuenta historias. </p>
+                            <p class="text-gray-900 p-3">La <span class="text-cyan-500 font-bold"> ABUELA </span> de Maria cocina delicioso. </p>
+                            <p class="text-gray-900 p-3">Hoy ire a la casa de mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Los domingos, visito a mi <span class="text-cyan-500 font-bold"> ABUELA </span>. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span>  y yo paseamos por el parque. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> siempre me sonrie. </p>
+                            <p class="text-gray-900 p-3">Mi <span class="text-cyan-500 font-bold"> ABUELA </span> me regala caramelos. </p>
+                        `
+                    },
+                ]
+            },
+
+        ],
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
 ]
 
 export const EvaluacionesEjemplosData = [
+    //------------------EVALUACION Mi Familia - Introduccion--------------------------------------
+    {
+        id: 1,
+        idEvaluacion: '6918bdc84bf63101fe03c58e',
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
+    //------------------EVALUACION Integrantes de mi Familia--------------------------------------
+    {
+        id: 1,
+        idEvaluacion: '6928bc24f60ca26b43c1a577',
+        contenidoPractico: [
+            {
+                //Ahorcadito
+                idJuego: 1,
+                palabras: [
+                    'HERMANO'
+                ],
+                imagenes: [],
+                gifs: [
+                    hermanoGif
+                ]
+            },
+            {
+                //Juego De La Memoria
+                idJuego: 2,
+                palabras: [],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg
+                ]
+            },
+            {
+                //Ruleta
+                idJuego: 3,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ]
+            },
+            {
+                //Unir Correspondientes
+                idJuego: 4,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                ]
+            },
+            {
+                //Buscar Coincidencias
+                idJuego: 5,
+                palabras: [
+                    'Abuelo',
+                    'Abuela',
+                    'Mama',
+                    'Papa',
+                    'Hermanos',
+                ],
+                imagenes: [
+                    abueloImg,
+                    abuelaImg,
+                    mamaImg,
+                    papaImg,
+                    hermanoImg
+                ],
+                gifs: [
+                    abueloGif,
+                    abuelaGif,
+                    mamaGif,
+                    papaGif,
+                    hermanoGif,
+                ],
+            },
+        ]
+    },
     //------------------EVALUACION CLIMA--------------------------------------
     {
         id: 1,

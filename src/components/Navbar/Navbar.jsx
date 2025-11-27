@@ -2,10 +2,10 @@ import { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Popover, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import { alumnos, menuCelular, aprendizaje } from './logs'
+import { alumnos, menuCelular, perfil, aprendizaje } from './logs'
 import { NavbarLogo } from './NavbarComponents/NavbarLogo'
 import { HamburguerButton, NavbarGroupButton, NavbarProfileButton } from './NavbarComponents/NavbarButtons'
-import { GroupPrincipalPanel } from './NavbarComponents/GroupOptions'
+import { GroupPrincipalPanel, GroupProfilePanelSecondary } from './NavbarComponents/GroupOptions'
 import { NavbarSimpleLink } from '../Links/NavbarOptionLink'
 import './Navbar.css';
 import { useSelector } from 'react-redux'
@@ -41,7 +41,7 @@ export const NavbarDesktop = ({ licenseType }) => {
 
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
-                    {/* PERFIL
+                    {/* PERFIL */}
                     <Popover className="relative">
                         {({ open, close }) => (
                             <>
@@ -53,12 +53,12 @@ export const NavbarDesktop = ({ licenseType }) => {
                                     leave="transition ease-in duration-50" leaveFrom="opacity-100 translate-y-0" leaveTo="opacity-0 translate-y-1"
                                 >
                                     <Popover.Panel className="absolute z-10 left-7 transform -translate-x-96 mt-3 px-2 w-screen max-w-md sm:px-0">
-                                        <GroupPrincipalPanel dataOptions={perfil} close={close} hasSecondaryPanel={true} />
+                                        <GroupProfilePanelSecondary />
                                     </Popover.Panel>
                                 </Transition>
                             </>
                         )}
-                    </Popover> */}
+                    </Popover>
 
                 </div>
             </div>
