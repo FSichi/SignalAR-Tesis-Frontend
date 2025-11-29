@@ -8,7 +8,7 @@ export const NavbarLogo = ({ link }) => {
     return (
         <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link to={link}>
-                <span className="sr-only">Signando</span>
+                <span className="sr-only">Signalar</span>
                 <img
                     className="h-10 w-auto sm:h-12 rounded-xl"
                     src={logo ?? altLogo}

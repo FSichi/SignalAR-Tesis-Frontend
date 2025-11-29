@@ -42,7 +42,7 @@ export const changePassword = (userData, { sucessCallBack }) => {
 
         try {
             await authApi.put(`/change-password`, userData);
-            ToastNotification.fire({ icon: 'success', title: 'Password cambio con Exito' });
+            ToastNotification.fire({ icon: 'success', title: 'Password cambiada con Exito' });
             sucessCallBack();
         } catch (error) {
             if (error.response.data.error === 'No puedes cambiar la contraseña actual por la misma') {

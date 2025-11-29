@@ -33,7 +33,7 @@ export const Login = () => {
                 <div className="bg-gray-700 px-12 py-16 rounded-xl text-white max-w-xl w-screen">
 
                     <TitleForForms
-                        title={'Bienvenido a'} titleEmphasis={'Signando'} colorTitle={'text-orange-400'}
+                        title={'Bienvenido a'} titleEmphasis={'Signalar'} colorTitle={'text-orange-400'}
                         subTitle={'Ingresa las credenciales de tu licencia'}
                     />
 

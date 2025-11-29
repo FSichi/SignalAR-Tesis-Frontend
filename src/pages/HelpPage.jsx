@@ -15,7 +15,7 @@ export const HelpPage = () => {
                     <BackButtonLogin icon={<HiReply />} actionMethod={() => { backtoLogin('/auth/login') }} />
 
                     <TitleForForms
-                        title={'Seccion de Ayuda'} titleEmphasis={'Signando'} colorTitle={'text-orange-400'}
+                        title={'Seccion de Ayuda'} titleEmphasis={'Signalar'} colorTitle={'text-orange-400'}
                         subTitle={'Selecciona el Tema en el que quieres mas informacion'}
                     />
 

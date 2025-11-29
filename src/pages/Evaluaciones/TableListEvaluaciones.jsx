@@ -70,13 +70,18 @@ export const TableRowEvaluaciones = ({ evaluacion }) => {
 
             <TableCellBackgroundComponent
                 data={progresoEvaluacion?.progreso ?? 'PENDIENTE'}
-                customWidth={135}
+                customWidth={175}
                 customBackgroundStyles={getEstadoEvaluacionBackground(progresoEvaluacion?.progreso ?? 'PENDIENTE')}
             />
 
-            <TableCellActionComponent
-                title={'Realizar'} color={'indigo-500'} linkAction={`../evaluacion/resolver/${evaluacion.id}`}
-            />
+            {progresoEvaluacion?.progreso != "APROBADA" ? 
+                <TableCellActionComponent
+                    title={'Realizar'} color={'indigo-500'} linkAction={`../evaluacion/resolver/${evaluacion.id}`}
+                />
+                :
+                <div></div>
+            }
+            
 
         </TableRow>
     )

@@ -12,7 +12,7 @@ export const SelectLicence = ({ licenceType, changeLicenceSelected, changeRegist
         <div className="bg-gray-700 px-12 py-10 rounded-xl text-white max-w-xl mt-5 mb-5">
 
             <TitleForForms
-                title={'Bienvenido a'} titleEmphasis={'Signando'} colorTitle={'text-orange-400'}
+                title={'Bienvenido a'} titleEmphasis={'Signalar'} colorTitle={'text-orange-400'}
                 subTitle={'Necesitamos cierta informacion para la creacion de tu licencia'}
             />
 
