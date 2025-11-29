@@ -2490,7 +2490,7 @@ export const EvaluacionesEjemplosData = [
     //------------------EVALUACION CLIMA--------------------------------------
     {
         id: 1,
-        idEvaluacion: '6918bdc84bf63101fe03c58e',
+        idEvaluacion: '6928bc289ed0a606a7c7f152',
         contenidoPractico: [
             {
                 //Ahorcadito
